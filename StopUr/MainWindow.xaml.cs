@@ -33,14 +33,7 @@ namespace StopUr
         /// <param name="e"></param>
         private void WriteToLabel(object sender, EventArgs e)
         {
-            try
-            {
-                Dispatcher.Invoke(() => Showtimer.Content = timer.ToString());
-            }
-            finally
-            {
-
-            }
+            Dispatcher.Invoke(() => Showtimer.Content = timer.ToString());
         }
 
         /// <summary>
@@ -50,6 +43,10 @@ namespace StopUr
         /// <param name="e"></param>
         private void createTimer_Click(object sender, RoutedEventArgs e)
         {
+            if (timer != null)//stops the timer if there already is one going
+            {
+                timer.StopTimer();
+            }
             timer = new CountDownTimer((int)hours.Value, (int)minutes.Value, (int)seconds.Value);
             hours.Value = 0;
             minutes.Value = 0;
