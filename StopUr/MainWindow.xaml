@@ -9,10 +9,13 @@
         Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
     <StackPanel>
         <Grid x:Name="CreateTimer" Height="50">
-            <ControlLib:NumericUpDown x:Name="hours" MinValue="0" MaxValue="23" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Left" Height="30" Margin="10,0,0,0" Width="47"/>
-            <ControlLib:NumericUpDown x:Name="minutes" MinValue="0" MaxValue="59" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Left" Height="30" Margin="62,0,0,0" Width="47"/>
-            <ControlLib:NumericUpDown x:Name="seconds" MinValue="0" MaxValue="59" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Left" Height="30" Margin="114,0,0,0" Width="47"/>
-            <Button x:Name="createTimer" Width="100" HorizontalAlignment="Left" Margin="643,5,0,5" FontSize="14" Click="createTimer_Click" Grid.Column="1">Set Timer</Button>
+            <ControlLib:NumericUpDown x:Name="minutes" MinValue="0" MaxValue="59" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Left" Height="30" Margin="131,0,0,0" Width="47"/>
+            <ControlLib:NumericUpDown x:Name="seconds" MinValue="0" MaxValue="59" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Left" Height="30" Margin="225,0,0,0" Width="47"/>
+            <Label Margin="0,0,739,0" VerticalAlignment="Center" Content="Hours"/>
+            <ControlLib:NumericUpDown x:Name="hours" MinValue="0" MaxValue="23" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Left" Height="30" Margin="40,0,0,0" Width="47"/>
+            <Button x:Name="createTimer" Width="100" HorizontalAlignment="Left" Margin="643,5,0,5" FontSize="14" Click="createTimer_Click" Grid.Column="1" Content="Set Timer"/>
+            <Label Margin="183,0,557,0" VerticalAlignment="Center" Content="Sec"/>
+            <Label Margin="87,0,652,0" VerticalAlignment="Center" Content="Min"/>
         </Grid>
         <StackPanel>
             <Grid>

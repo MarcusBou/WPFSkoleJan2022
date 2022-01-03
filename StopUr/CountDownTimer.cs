@@ -11,7 +11,7 @@ namespace StopUr
         private int countdownSeconds;
         private Thread thread;
         private bool run;
-
+        private object _lock = new object();
         public event EventHandler CountDownChange;
         public int CountdownSeconds { get { return countdownSeconds;} }
         public CountDownTimer(int hour, int min, int sec)
@@ -71,15 +71,18 @@ namespace StopUr
         /// </summary>
         public void Countdown()
         {
-            while (this.countdownSeconds > 0 && this.run == true)
+            lock (_lock)
             {
-                this.countdownSeconds--;
-                OnCountChange(EventArgs.Empty);
-                Thread.Sleep(1000);
-            }
-            if (this.countdownSeconds == 0)
-            {
-                PlaySound();
+                while (this.countdownSeconds > 0 && this.run == true)
+                {
+                    this.countdownSeconds--;
+                    OnCountChange(EventArgs.Empty);
+                    Thread.Sleep(1000);
+                }
+                if (this.countdownSeconds == 0)
+                {
+                    PlaySound();
+                }
             }
         }
 
