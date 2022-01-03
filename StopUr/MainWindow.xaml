@@ -6,19 +6,19 @@
         xmlns:ControlLib="clr-namespace:ControlLib;assembly=NumericUpDown"
         xmlns:local="clr-namespace:StopUr"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
     <StackPanel>
         <Grid x:Name="CreateTimer" Height="50">
             <ControlLib:NumericUpDown x:Name="hours" MinValue="0" MaxValue="23" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Left" Height="30" Margin="10,0,0,0" Width="47"/>
             <ControlLib:NumericUpDown x:Name="minutes" MinValue="0" MaxValue="59" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Left" Height="30" Margin="62,0,0,0" Width="47"/>
             <ControlLib:NumericUpDown x:Name="seconds" MinValue="0" MaxValue="59" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Left" Height="30" Margin="114,0,0,0" Width="47"/>
-            <Button x:Name="createTimer" Width="100" HorizontalAlignment="Left" Margin="643,5,0,5" FontSize="14" Click="createTimer_Click" Grid.Column="1">Create Timer</Button>
+            <Button x:Name="createTimer" Width="100" HorizontalAlignment="Left" Margin="643,5,0,5" FontSize="14" Click="createTimer_Click" Grid.Column="1">Set Timer</Button>
         </Grid>
         <StackPanel>
             <Grid>
-                <Label x:Name="Showtimer" HorizontalAlignment="Left" Width="250"></Label>
-                <Button x:Name="startTimer"  Width="200" Margin="395,0,205,0" Click="startTimer_Click">start</Button>
-                <Button x:Name="stopTimer" HorizontalAlignment="Right" Width="200" Click="stopTimer_Click">stop</Button>
+                <Label x:Name="Showtimer" Margin="326,0,332,0" FontSize="24" Content="0 : 0 : 0"/>
+                <Button x:Name="startTimer"  Width="200" Margin="65,83,535,-83" Click="startTimer_Click">start</Button>
+                <Button x:Name="stopTimer" HorizontalAlignment="Right" Width="200" Click="stopTimer_Click" Margin="0,83,65,-83">stop</Button>
             </Grid>
         </StackPanel>
     </StackPanel>

@@ -26,27 +26,73 @@ namespace StopUr
             InitializeComponent();
         }
 
-        private void kage(object sender, EventArgs e)
+        /// <summary>
+        /// Writes To label when Event has happened
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void WriteToLabel(object sender, EventArgs e)
         {
-            Dispatcher.Invoke(() => Showtimer.Content = timer.ToString());
+            try
+            {
+                Dispatcher.Invoke(() => Showtimer.Content = timer.ToString());
+            }
+            finally
+            {
+
+            }
         }
+
+        /// <summary>
+        /// Creates Timer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void createTimer_Click(object sender, RoutedEventArgs e)
         {
             timer = new CountDownTimer((int)hours.Value, (int)minutes.Value, (int)seconds.Value);
             hours.Value = 0;
             minutes.Value = 0;
-            seconds.Value 0;
-            timer.CountDownChange += kage;
+            seconds.Value = 0;
+            Showtimer.Content = timer.ToString();
+            timer.CountDownChange += WriteToLabel;
         }
+        /// <summary>
+        /// starts Timer if exist
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void startTimer_Click(object sender, RoutedEventArgs e)
         {
-            timer.StartTimer();
+            if (timer != null)
+            {
+                timer.StartTimer();
+            }
         }
+        /// <summary>
+        /// Stops timer if it exist
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void stopTimer_Click(object sender, RoutedEventArgs e)
         {
-            timer.StopTimer();
+            if (timer != null)
+            {
+                timer.StopTimer();
+            }
         }
 
-        
+        /// <summary>
+        /// shutdowns thread and stopwatch on windowClose
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (timer != null)
+            {
+                timer.StopTimer();
+            }
+        }
     }
 }

@@ -77,6 +77,10 @@ namespace StopUr
                 OnCountChange(EventArgs.Empty);
                 Thread.Sleep(1000);
             }
+            if (this.countdownSeconds == 0)
+            {
+                PlaySound();
+            }
         }
 
         /// <summary>
@@ -88,6 +92,16 @@ namespace StopUr
             this.CountDownChange?.Invoke(this, e);
         }
 
+        /// <summary>
+        /// SoundPlayer for when Alarm Is finished
+        /// </summary>
+        private void PlaySound()
+        {
+            System.Media.SoundPlayer soundPlayer = new System.Media.SoundPlayer();
+            soundPlayer.SoundLocation = @"C:\Users\MBour\OneDrive\Dokumenter\GitHub\WPFSkoleJan2022\StopUr\AlarmSound\Alarm.wav";
+            soundPlayer.Load();
+            soundPlayer.PlaySync();
+        }
         /// <summary>
         /// overrides tostring
         /// </summary>
