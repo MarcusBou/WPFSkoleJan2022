@@ -16,7 +16,7 @@
             <Label>This is a Label in a vertical stackpanel</Label>
             <Label Background="Aqua">This is a colored Panel in a vertical stackpanel</Label>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
+        <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Top">
             <Button>This is a Button in a vertical stackpanel</Button>
             <Label>This is a Label in a vertical stackpanel</Label>
             <Label Background="Green">This is a colored Panel in a vertical stackpanel</Label>

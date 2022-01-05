@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace EventsProject
 {
@@ -27,10 +28,21 @@ namespace EventsProject
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Button myButton = new Button();
-            myButton.Content = "Click Me!";
-            myButton.Click += Button_Click;
-            Stack.Children.Add(myButton);
+            OrderTimer orderTimer = new OrderTimer();
+            Label label = new Label();
+            label.Content = "Helloe";
+            Stack.Children.Add(label);
+            orderTimer.OrderTimerChanged += OtChanged;
+        }
+
+        private void OtChanged(object sender, EventArgs e)
+        {
+            Application.Current.Dispatcher.Invoke((Action)delegate
+            {
+                Debug.WriteLine("OT Update");
+                time.Content = ((OrderTimerEventArgs)e).TimeLeft;
+
+          });
         }
     }
 }

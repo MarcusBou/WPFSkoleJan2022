@@ -9,6 +9,7 @@
     <Grid>
         <StackPanel x:Name="Stack">
             <Button Click="Button_Click">Add New</Button>
+            <Label x:Name="time"></Label>
         </StackPanel>
         
     </Grid>
